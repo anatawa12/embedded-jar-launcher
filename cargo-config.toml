@@ -1,0 +1,12 @@
+[target.x86_64-apple-darwin]
+linker = "clang"
+
+# we need to synk linker version with build-cross-chain.sh
+rustflags = [
+    "-Clink-arg=--target=x86_64-apple-darwin",
+    "-Clink-arg=-mlinker-version=609",
+    "-Clink-arg=-isysroot/project/MacOSX12.0.sdk",
+    "-Clink-arg=-mmacosx-version-min=10.9.0",
+    "-Clink-arg=--verbose",
+    "-Clink-arg=-fuse-ld=/project/build-chain/target/bin/x86_64-apple-darwin-ld",
+]

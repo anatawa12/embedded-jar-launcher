@@ -1,0 +1,4 @@
+/target
+/MacOSX*.sdk/
+/MacOSX*.sdk.*
+/build-chain
