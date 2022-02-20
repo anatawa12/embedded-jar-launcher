@@ -1,0 +1,39 @@
+[package]
+name = "launcher-lib"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+home = "0.5"
+cfg-if = "1"
+glob = "0.3"
+tempfile = "3"
+tar = "0.4"
+flate2 = "1"
+jni = "0.19"
+log = "0.4"
+libloading = "0.7"
+
+[dependencies.zip]
+version = "0.5"
+default-features = false
+features = [
+    "deflate",
+    "time",
+]
+
+[target.'cfg(target_os = "windows")'.dependencies]
+winreg = "0.10"
+
+[lib]
+crate-type = ["rlib"]
+
+[features]
+"jni-1.2" = []
+"jni-1.4" = ["jni-1.2"]
+"jni-1.6" = ["jni-1.4"]
+"jni-9" = ["jni-1.6"]
+
+default = [
+    "jni-1.6",
+]

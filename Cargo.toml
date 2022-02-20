@@ -2,5 +2,10 @@
 
 members = [
     "native",
+    "native/lib",
     "sdk-generator",
 ]
+
+[profile.release]
+panic = 'abort'
+lto = true
